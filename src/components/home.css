@@ -1,0 +1,7 @@
+.cards{
+    text-align: center;
+    /* background-color: brown; */
+    margin: 10px 10px;
+    width: 95%;
+    display: inline-block;
+}

@@ -1,0 +1,80 @@
+.loginForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 50%;
+    width: 30%;
+    margin: 100px 35%;
+    /* padding: 100px 40%; */
+    box-shadow: #6cf0c2;
+    font-size: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+  height: 25px;
+  border: 1px solid rgba(65, 64, 64, 0.911);
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 100px;
+  height: 40px;
+  background: #3e3f3c;
+  border: 1px solid #181918;
+  border-radius: 10px;
+  color: #cfcac7;
+}
+
+input[type="submit"]:hover {
+  background: #131111;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-form {
+  /* background-color: white; */
+  padding: 2rem;
+  box-shadow: 8px 8px 8px 8px rgba(172, 160, 160, 0.2), 0 6px 20px 0 rgba(156, 152, 152, 0.19);
+}
+
+.list-container {
+  display: flex;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.title {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 10px;
+}
+
+label {
+	color: #c0a89f;
+	display: block; 
+	margin: 3px;
+}
+
+.register-message{
+    font-size: 15px;
+    color: rgb(121, 116, 109);
+    margin: 20px 10px;
+}
