@@ -29,8 +29,9 @@ function Profile() {
         console.log(isGiver);
       } else {
         setData1(res.data.data.applied_users);
-        setIsGiver(true);
         setIsSeeker(false);
+        setIsGiver(true);
+        
       }
     }).catch((err) => console.log(err));
   }, []);

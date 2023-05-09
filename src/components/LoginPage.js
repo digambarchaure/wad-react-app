@@ -4,6 +4,8 @@ import "./login.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+
+
 export default function Login() {
   const [errorMessage, setErrorMessage] = useState({});
 
@@ -30,7 +32,11 @@ export default function Login() {
       .then((Response) => {
         console.log(Response);
         sessionStorage.setItem('token', Response.data.token);
-        if (Response.status === 200) alert("login suceess");
+        if (Response.status === 200) {
+          // alert("login success");
+          window.location.replace("http://localhost:3000/home");
+         
+        }
       })
       .catch((error) => setErrorMessage(error.message));
   };

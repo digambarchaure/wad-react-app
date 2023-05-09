@@ -4,17 +4,19 @@ import Login from "./components/LoginPage";
 import Register from "./components/RegisterPage";
 import HomePage from "./components/HomePage";
 import SpecificWork from "./components/SpecificWork";
+import Profile from "./components/Profile";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Profile from "./components/Profile";
 
 function App() {
   return (
     <>
       <Router>
+
         <Navbar title="Daily Wage Workers" aboutText="About" />
+
         <Routes>
-          
+
           <Route
             exact
             path="/register"
@@ -25,31 +27,10 @@ function App() {
             }
           />
 
-          <Route
-            exact
-            path="/specificWork/:id"
-            element={
-                <SpecificWork />
-            }
-          />
+          <Route exact path="/specificWork/:id" element={<SpecificWork />} />
 
-          <Route
-            exact
-            path="/specificWork/:id"
-            element={
-                <SpecificWork />
-            }
-          />
+          <Route exact path="/profile" element={<Profile />} />
 
-          <Route
-            exact
-            path="/profile"
-            element={
-                <Profile />
-            }
-          />
-
-          
           <Route
             exact
             path="/home"
@@ -71,7 +52,9 @@ function App() {
           />
 
         </Routes>
+
       </Router>
+      
     </>
   );
 }

@@ -9,13 +9,17 @@ export default function SpecificWork() {
 
   const [data, setData] = useState([]);
 
+  const [flag , setFlag] = useState(false);
+
   useEffect(() => {
     console.log(params1.id);
+    
+    // setFlag(false);
     axios({
       url: "http://localhost:3001/api/dailyWage/getSpecificTypeWorks",
       method: "get",
       params: {
-        id: params1.id,
+        id: params1.id
       },
       headers: {
         "Content-type": "application/json",
@@ -23,11 +27,12 @@ export default function SpecificWork() {
       },
     })
       .then((res) => {
-        console.log(res.data);
+        console.log("Helloooo");
+        console.log(res);
         setData(res.data.obj);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [flag]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -73,6 +78,7 @@ export default function SpecificWork() {
 
   const handleSubmitForForm = (event) => {
     event.preventDefault();
+    setFlag(true);
     axios
       .post("http://localhost:3001/api/dailyWage/createNewJob", inputData, {
         headers: {
@@ -92,21 +98,21 @@ export default function SpecificWork() {
   return (
     <>
       <div class="workcards">
-        {data.map((singleData) => {
+        {data[0] !== null && data.map((singleData) => {
           return (
             <div class="work">
               <div class="topsection">
                 <div class="address">
-                  <h3>Location: {singleData.location}</h3>
-                </div>
-                <div class="Name">
-                  <h3>Job Geever Name: ____</h3>
+                  <h4>Location: {singleData.location}</h4>
                 </div>
                 <div class="pay">
-                  <h3>Pay Per Day: {singleData.payPerDay}</h3>
+                  <h4>Pay Per Day: {singleData.payPerDay}</h4>
                 </div>
                 <div class="Duration">
-                  <h3> Duration of work: {singleData.workingHours}</h3>
+                  <h4> Duration of work: {singleData.workingHours}</h4>
+                </div>
+                <div class="Name">
+                  <h4>Description: {singleData.description} </h4>
                 </div>
               </div>
 

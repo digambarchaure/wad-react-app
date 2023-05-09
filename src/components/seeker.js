@@ -3,12 +3,12 @@ const Seeker = (props) => {
     return (
         <div className="card1">
             {
-                jobs && jobs.map(
+                jobs.map(
                     job => (
                         <div className="job-preview">
-                            <h3>Location = {job.location}</h3>
-                            <h3>Per Day Wage = {job.payPerDay}</h3>
-                            <h3>working Hours = {job.workingHours}</h3>
+                            <h5>Location = {job.location}</h5>
+                            <h5>Per Day Wage = {job.payPerDay}</h5>
+                            <h5>working Hours = {job.workingHours}</h5>
                         </div>
                     )
                 )

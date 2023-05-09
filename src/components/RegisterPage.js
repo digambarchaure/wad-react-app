@@ -44,13 +44,11 @@ export default function Register() {
       })
       .then((Response) => {
         console.log(Response);
-        // if (Response.status === 200) alert("login suceess");
         if(Response.data.Status === 'Created'){
-          // redirect to login
                 
           alert("User Created Successfully");
 
-          window.location.replace("http://localhost:3000/")
+          window.location.replace("http://localhost:3000/");
         }
         else{
           alert("User is Not Created");
@@ -133,8 +131,8 @@ export default function Register() {
         </div>
 
         <div className="button-container">
-          {/* <input type="submit" /> */}
           <button
+            
             type="submit"
             className="btn btn-secondary my-3"
             onClick={handleSubmit}

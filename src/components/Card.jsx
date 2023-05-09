@@ -9,11 +9,12 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    // console.log(localStorage);
     axios({
       url: "http://localhost:3001/api/dailyWage/uploadWorkImage",
       method: "get",
       headers: {
-        'Authorization' : `Bearer ${localStorage.getItem('token')}`
+        'Authorization' : `Bearer ${sessionStorage.getItem('token')}`
       }
     })
       .then((res) =>{
@@ -26,17 +27,17 @@ function App() {
   }, []);
 
   
-  const convertToSlug = (Text) => {
-    return Text.toLowerCase()
-      .replace(/ /g, "-")
-      .replace(/[^\w-]+/g, "");
-  };
+  // const convertToSlug = (Text) => {
+  //   return Text.toLowerCase()
+  //     .replace(/ /g, "-")
+  //     .replace(/[^\w-]+/g, "");
+  // };
 
   return (
 
     <div className="container">
 
-      {data.map((singleData) => {
+      {data.length !== 0 && data.map((singleData) => {
 
         const buffer = Buffer.from(singleData.imageBuffer.data);
         const base64String = buffer.toString("base64");

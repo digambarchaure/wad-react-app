@@ -3,7 +3,7 @@ const Giver = (props) => {
     return (
         <div className="card1">
             {
-                users && users.map((job) => (
+                users.map((job) => (
                     <div className="job-preview">
                     <h3>Name of Applicant : {job.name}</h3>
                     <h3>Email : {job.email}</h3>

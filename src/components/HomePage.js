@@ -10,7 +10,6 @@ export default function HomePage() {
     <div className='cards'>
         <Card/>
     </div>
-
   
     </>
   )
