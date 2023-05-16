@@ -11,6 +11,11 @@ export default function SpecificWork() {
 
   const [flag , setFlag] = useState(false);
 
+  const [showForm, setShowForm] = useState(false);
+  const [showForm1, setShowForm1] = useState(false);
+
+  const [showSubmitbtn, setShowSubmitbtn] = useState(false);
+
   useEffect(() => {
     console.log(params1.id);
     
@@ -30,6 +35,14 @@ export default function SpecificWork() {
         console.log("Helloooo");
         console.log(res);
         setData(res.data.obj);
+        if(res.data.usertype == 'seeker'){
+          setShowForm1(false);
+          setShowSubmitbtn(true);
+        }
+        else{
+          setShowForm1(true);
+          setShowSubmitbtn(false);
+        }
       })
       .catch((err) => console.log(err));
   }, [flag]);
@@ -58,7 +71,7 @@ export default function SpecificWork() {
   };
 
   // things for form
-  const [showForm, setShowForm] = useState(false);
+  
 
   const [inputData, setInputData] = useState({
     address: "",
@@ -116,7 +129,7 @@ export default function SpecificWork() {
                 </div>
               </div>
 
-              <div class="bottomsection">
+              {showSubmitbtn && <div class="bottomsection">
                 <button
                   type="submit"
                   id="btn"
@@ -126,20 +139,22 @@ export default function SpecificWork() {
                   Apply
                 </button>
               </div>
+              }
             </div>
           );
         })}
       </div>
 
-      <div>
+      {showForm1 && <div>
         <button type="submit" id="btn2" onClick={handleClickForForm}>
           Add New Work
         </button>
       </div>
+      }
 
       <div>
         {showForm && (
-          <form onSubmit={handleSubmitForForm}>
+          <form className="specificWorks" onSubmit={handleSubmitForForm}>
             
             <label for="address">Address</label>
             <input

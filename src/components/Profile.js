@@ -21,13 +21,14 @@ function Profile() {
     }).then((res) => {
       console.log(res);
       setData(res.data.data.basic_detail);
-      if (data.usertype === 'seeker') {
+      if (res.data.data.basic_detail.usertype === 'seeker') {
         setData1(res.data.data.jobs_applied);
         setIsSeeker(true);
         setIsGiver(false);
         console.log(res);
         console.log(isGiver);
       } else {
+        console.log(res.data.data);
         setData1(res.data.data.applied_users);
         setIsSeeker(false);
         setIsGiver(true);
